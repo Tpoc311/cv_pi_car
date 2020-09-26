@@ -49,7 +49,7 @@ Raspbrerry pi считает угол, на который нужно повер
 
 ![no noize.png](https://github.com/Tpoc311/AutoPiCar/blob/master/Images/no%20noize.png)
 
-5. С помощью преобразования Хаффа получаем координаты линий на изображении;
+5. С помощью преобразования Хафа получаем координаты линий на изображении;
 
 ![coordinates.png](https://github.com/Tpoc311/AutoPiCar/blob/master/Images/coordinates.png)
 
