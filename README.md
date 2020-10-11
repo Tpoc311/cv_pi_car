@@ -68,3 +68,7 @@ Raspbrerry pi считает угол, на который нужно повер
 
 ## Инструменты и библиотеки
 В проекте были использованы Python 3.7.3 и библиотека OpenCV 3.4.3.
+
+## Источники
+
+1. DeepPiCar — Part 1: How to Build a Deep Learning, Self Driving Robotic Car on a Shoestring Budget URL:https://towardsdatascience.com/deeppicar-part-1-102e03c83f2c
