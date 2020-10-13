@@ -1,5 +1,5 @@
 # AutoPiCar
-AutoPiCar - это робототехническая модель, собранная из множества радиомодулей. 
+AutoPiCar - это робототехническое устройство, собранное из множества радиомодулей. 
 AutoPiCar имеет три важные детали - Raspberry pi 4, Arduino nano и Raspberry Pi Camera Module v 2.1.
 
 ## Как это работает?
