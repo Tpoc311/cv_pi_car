@@ -32,9 +32,3 @@ well:
 <p align="center">
     <img src="Images/hardware/assembled.jpg" width="60%" alt="Images/hardware/assembled.jpg"/>
 </p>
-
-## Sources
-
-1. [Arduino nano pinout diagram](https://docs.arduino.cc/hardware/nano).
-2. [L298N pinout diagram](https://www.electroduino.com/introduction-to-l298n-motor-driver-how-its-work/).
-3. [Servo motor pinout diagram](https://circuitspedia.com/arduino-servo-motor-control/).
