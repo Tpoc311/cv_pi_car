@@ -32,3 +32,5 @@ well:
 <p align="center">
     <img src="Images/hardware/assembled.jpg" width="60%" alt="Images/hardware/assembled.jpg"/>
 </p>
+
+This is an example of how to build a flat platform for testing CV-projects for autonomous robots.
