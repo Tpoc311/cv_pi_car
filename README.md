@@ -28,8 +28,12 @@ After that all we need is to upload `drivingModule.ino` to Arduino and start `ma
 ## What can be improved
 
 This algorithm is not inclined to detect curved lines, but you can look at
-project [Curved_Lane_Line_Detection](https://github.com/Tpoc311/Curved_Lane_Line_Detection) and apply an improved version
+project [Curved_Lane_Line_Detection](https://github.com/Tpoc311/Curved_Lane_Line_Detection) and apply an improved
+version
 of the algorithm to detect curved lines of the road lane. It's more like a real road lane.
+
+You may also use deep learning approach to recognize road lane (for example - image segmentation) if you have suitable
+hardware like [Nvidia Jenson Nano](https://developer.nvidia.com/embedded/jetson-nano-developer-kit) or stronger.
 
 If you have any questions about the project you are always welcome to contact me via email:
 vadim.kolesnikov.311@gmail.com.
