@@ -1,6 +1,5 @@
 # CV pi car
 
-
 <p align="center">
     <img src="Images/hardware/overview.jpg" width="50%" alt="Images/hardware/overview.jpg"/>
 </p>
@@ -19,3 +18,13 @@ following readmes:
 
 * Hardware part - [README_hardware](README_hardware.md).
 * Software part - [README_software](README_software.md).
+
+## What I used to connect to robocar and start it
+
+After installing Raspberry OS we need to enable ssh. Then configure VNC server to connect with monitor via your PC or
+laptop [1].
+After that all we need is to upload `uart.ino` to Arduino and start `main.py`.
+
+## Sources
+
+1. [Configure VNC server](https://www.tomshardware.com/how-to/install-vnc-raspberry-pi-os).
