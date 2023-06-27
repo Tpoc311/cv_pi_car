@@ -23,7 +23,7 @@ following readmes:
 
 After installing Raspberry OS we need to enable ssh. Then configure VNC server to connect with monitor via your PC or
 laptop [1].
-After that all we need is to upload `uart.ino` to Arduino and start `main.py`.
+After that all we need is to upload `drivingModule.ino` to Arduino and start `main.py`.
 
 If you have any questions about the project you are always welcome to contact me via email:
 vadim.kolesnikov.311@gmail.com.

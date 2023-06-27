@@ -76,8 +76,6 @@ void loop()
         }
         leadWheels.write(angle);
         delay(150);
-        
-        //Serial.print(angle);
       }
     }
   }
