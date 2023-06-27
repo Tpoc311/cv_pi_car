@@ -25,6 +25,9 @@ After installing Raspberry OS we need to enable ssh. Then configure VNC server t
 laptop [1].
 After that all we need is to upload `uart.ino` to Arduino and start `main.py`.
 
+If you have any questions about the project you are always welcome to contact me via email:
+vadim.kolesnikov.311@gmail.com.
+
 ## Sources
 
 1. [Configure VNC server](https://www.tomshardware.com/how-to/install-vnc-raspberry-pi-os).
