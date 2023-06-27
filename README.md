@@ -25,6 +25,12 @@ After installing Raspberry OS we need to enable ssh. Then configure VNC server t
 laptop [1].
 After that all we need is to upload `drivingModule.ino` to Arduino and start `main.py`.
 
+## What can be improved
+
+This algorithm is not inclined to detect curved lines, but you can look at
+project [Curved_Lane_Line_Detection](https://github.com/Tpoc311/Curved_Lane_Line_Detection) and apply an improved version
+of the algorithm to detect curved lines of the road lane. It's more like a real road lane.
+
 If you have any questions about the project you are always welcome to contact me via email:
 vadim.kolesnikov.311@gmail.com.
 
