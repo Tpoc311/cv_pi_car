@@ -1,51 +1,68 @@
-## Алгоритм распознавания
-Задача алгоритма - сформировать линию на каждом кадре, указывающую направление необходимого движения и выдать угол её наклона (в диапазоне от 0 до 180 градусов).
-Исходное изображение выглядит следующим образом:
+## Software
 
-![original.png](https://github.com/Tpoc311/AutoPiCar/blob/master/Images/original.png)
+The task of the algorithm is a vector for each frame, an angle of which shows (from 0 to 180 degrees) the force with
+which the wheels must be turned and the direction. This angle is passed from the Raspberry Pi to the Arduino, which
+makes the servo motor to turn the wheels in the desired direction.
 
-1. Конвертируем его в формат HSV. Так мы сможем задать диапазон распознаваемых цветов;
+Original image may look like:
 
-![hsv.png](https://github.com/Tpoc311/AutoPiCar/blob/master/Images/hsv.png)
+<p align="center">
+    <img src="Images/original.png" width="70%" alt="Images/original.png"/>
+</p>
 
-2. Создаём маску для выделения синих областей из заданного диапазона цветов;
+We convert it to HSV format. So we can choose the range of recognizable colors:
 
-![mask.png](https://github.com/Tpoc311/AutoPiCar/blob/master/Images/mask.png)
+<p align="center">
+    <img src="Images/hsv.png" width="70%" alt="Images/hsv.png"/>
+</p>
 
-3. С помощью детектора границ Кенни находим углы на полученном изображении;
+Create a mask to highlight blue areas from a given range of colors:
 
-![canny edge detector.png](https://github.com/Tpoc311/AutoPiCar/blob/master/Images/canny%20edge%20detector.png)
+<p align="center">
+    <img src="Images/mask.png" width="70%" alt="Images/mask.png"/>
+</p>
 
-4. Избавляемся от лишних границ, оставляя только дорожную разметку;
+Using the Kenny edge detector, we find the corners in the resulting image:
 
-![no noize.png](https://github.com/Tpoc311/AutoPiCar/blob/master/Images/no%20noize.png)
+<p align="center">
+    <img src="Images/canny_edge_detector.png" width="70%" alt="Images/canny_edge_detector.png"/>
+</p>
 
-5. С помощью преобразования Хафа получаем координаты линий на изображении;
+Get rid of unnecessary borders, leaving only road markings:
 
-![coordinates.png](https://github.com/Tpoc311/AutoPiCar/blob/master/Images/coordinates.png)
+<p align="center">
+    <img src="Images/no_noize.png" width="70%" alt="Images/no_noize.png"/>
+</p>
 
-6. Поскольку на пункте 5 мы получаем координаты не двух линий, а целой кучи, то необходимо их преобразовать в координаты нужных нам двух линий;
+Using the Hough transform, we obtain the coordinates of the lines on the image:
 
-### Логика расчёта линий
-Берём по очереди каждую задетектированную линию и проверяем, если она входит в левую часть изображения и наклонена вправо, то это левая линия. Сохраняем её наклон(slope) и пересечение(intercept) в массив. 
-Если же линия входит в правую часть экрана и наклонена влево, то это правая линия. Сохраняем её наклон(slope) и пересечение(intercept) в другой массив. 
-Так делаем с каждой линией и далее берём среднее по каждому массиву – это и будут искомые наклон(slope) и пересечение(intercept) двух полос. После этого нарисуем эти линии поверх исходного изображения.
+<p align="center">
+    <img src="Images/coordinates.png" width="70%" alt="Images/coordinates.png"/>
+</p>
 
-![lane lines.png](https://github.com/Tpoc311/AutoPiCar/blob/master/Images/lane%20lines.png)
+Since at point 5 we get the coordinates not of two lines, but of bunch, it is necessary to convert them into
+coordinates of two lines (or one if the second one is not visible):
 
-![one lane line.png](https://github.com/Tpoc311/AutoPiCar/blob/master/Images/one%20lane%20line.png)
+<p align="center">
+    <img src="Images/lane_lines.png" width="70%" alt="Images/lane_lines.png"/>
+    <img src="Images/one_lane_line.png" width="70%" alt="Images/one_lane_line.png"/>
+</p>
 
-7. Теперь, когда мы имеем координаты начала и конца обеих полос, считаем угол направляющей линии.
+Now when we have the start and end coordinates for both lanes, we can calculate the angle of the direction line. The
+target slope line looks like this:
 
-### Логика расчёта угла наклона
-Для расчёта направляющей линии мы просто усредняем две линии по координатам конечных точек, получая координаты направляющей линии. Её наклон и будет углом поворота.
-В случае если линия задетектирована всего одна, то углом поворота будет угол наклона этой же линии.
+<p align="center">
+    <img src="Images/direction_line.png" width="70%" alt="Images/direction_line.png"/>
+</p>
 
-![direction line.png](https://github.com/Tpoc311/AutoPiCar/blob/master/Images/direction%20line.png)
+In this way, the Raspberry Pi considers the angle of rotation, and the arduino turns the front wheels and rotates the
+DC motor on back wheels.
 
-## Инструменты и библиотеки
-В проекте были использованы Python 3.7.3 и библиотека OpenCV 3.4.3.
+## Environment
 
-## Источники
+1. Python 3.7.3.
+2. OpenCV 3.4.3.
 
-1. DeepPiCar — Part 1: How to Build a Deep Learning, Self Driving Robotic Car on a Shoestring Budget. URL: https://towardsdatascience.com/deeppicar-part-1-102e03c83f2c
+## Sources
+
+1. [DeepPiCar — Part 1: How to Build a Deep Learning, Self Driving Robotic Car on a Shoestring Budget](https://towardsdatascience.com/deeppicar-part-1-102e03c83f2c).
